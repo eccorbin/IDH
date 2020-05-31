@@ -1,0 +1,793 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/31/2020 8:18:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EDOUARDCORBIN"
+  DTS:CreatorName="EDOUARDCORBIN\Edouard Corbin"
+  DTS:DTSID="{4BB0BADE-542A-4765-96F7-0B7CF2ADE350}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{357019BB-DF5B-49E9-8217-2E211B7C69ED}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[db-mssql.s21495]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{1B4849A9-A98E-4197-9D72-FB10FEDE1230}"
+      DTS:ObjectName="db-mssql.s21495">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=db-mssql;Initial Catalog=s21495;Integrated Security=True;Application Name=SSIS-Package1-{1B4849A9-A98E-4197-9D72-FB10FEDE1230}db-mssql.s21495;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{231F4954-FC16-4A5D-ADFF-133B1C373A2D}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Edouard Corbin\Suspectlog.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{86A86064-F209-4C3F-81D6-402C3B2865AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{FE97EA22-3FFD-4771-897E-C4FE7081A522}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CMPLNT_NUM"
+              DTS:DTSID="{955588D6-F050-4774-BE2E-B08F44AF5A6B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUSP_AGE_GROUP"
+              DTS:DTSID="{6C1B96C3-C551-45BF-A558-B9F74B471CA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUSP_RACE"
+              DTS:DTSID="{1336DD90-F9A3-4637-9038-A14D006264ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUSP_SEX"
+              DTS:DTSID="{C585F153-02DE-4C91-99E3-C762EB24C93B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A7D59BB3-94F3-4E12-810F-785102213008}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Edouard Corbin\NYPD_Crimes.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{9AEDC7CC-A3D3-4910-A704-FB7A84A081DB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Suspect"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s21495]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s21495]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_NUM]"
+                      cachedDataType="r8"
+                      cachedName="CMPLNT_NUM"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdSuspect]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[SUSP_AGE_GROUP]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_AGE_GROUP"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Age_Gropu]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_AGE_GROUP]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[SUSP_RACE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_RACE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Race]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_RACE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[SUSP_SEX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_SEX"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Sex]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_SEX]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdSuspect]"
+                      dataType="i4"
+                      name="IdSuspect" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Age_Gropu]"
+                      dataType="wstr"
+                      length="255"
+                      name="Suspect_Age_Gropu" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Race]"
+                      dataType="wstr"
+                      length="255"
+                      name="Suspect_Race" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Sex]"
+                      dataType="wstr"
+                      length="255"
+                      name="Suspect_Sex" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination de fichier plat"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destination de fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Destination de fichier plat"
+              localeId="1036"
+              name="Destination de fichier plat"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si les données remplaceront ou seront ajoutées au fichier de destination."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le texte à enregistrer sur le fichier de destination avant d'enregistrer des données."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="Quand le qualificateur de texte est activé, spécifie si le qualificateur de texte dans les données écrites dans le fichier de destination va être échappé ou non."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination de fichier plat.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat]"
+                  hasSideEffects="true"
+                  name="Entrée de destination de fichier plat">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[CMPLNT_NUM]"
+                      cachedDataType="r8"
+                      cachedName="CMPLNT_NUM"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[CMPLNT_NUM]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[SUSP_AGE_GROUP]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_AGE_GROUP"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[SUSP_AGE_GROUP]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_AGE_GROUP]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[SUSP_RACE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_RACE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[SUSP_RACE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_RACE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[SUSP_SEX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_SEX"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[SUSP_SEX]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_SEX]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[CMPLNT_NUM]"
+                      dataType="r8"
+                      name="CMPLNT_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[SUSP_AGE_GROUP]"
+                      dataType="wstr"
+                      length="255"
+                      name="SUSP_AGE_GROUP" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[SUSP_RACE]"
+                      dataType="wstr"
+                      length="255"
+                      name="SUSP_RACE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[SUSP_SEX]"
+                      dataType="wstr"
+                      length="255"
+                      name="SUSP_SEX" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Source Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="Source Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">Sheet3$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Source Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_NUM]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
+                      name="CMPLNT_NUM"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_AGE_GROUP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SUSP_AGE_GROUP]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_AGE_GROUP]"
+                      name="SUSP_AGE_GROUP"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_RACE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SUSP_RACE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_RACE]"
+                      name="SUSP_RACE"
+                      truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_SEX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SUSP_SEX]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_SEX]"
+                      name="SUSP_SEX"
+                      truncationRowDisposition="RedirectRow" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_NUM]"
+                      dataType="r8"
+                      name="CMPLNT_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[ADDR_PCT_CD]"
+                      dataType="r8"
+                      name="ADDR_PCT_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[BORO_NM]"
+                      dataType="wstr"
+                      length="255"
+                      name="BORO_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_FR_DT]"
+                      dataType="wstr"
+                      length="255"
+                      name="CMPLNT_FR_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_FR_TM]"
+                      dataType="date"
+                      name="CMPLNT_FR_TM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_TO_DT]"
+                      dataType="wstr"
+                      length="255"
+                      name="CMPLNT_TO_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_TO_TM]"
+                      dataType="date"
+                      name="CMPLNT_TO_TM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CRM_ATPT_CPTD_CD]"
+                      dataType="wstr"
+                      length="255"
+                      name="CRM_ATPT_CPTD_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[HADEVELOPT]"
+                      dataType="wstr"
+                      length="255"
+                      name="HADEVELOPT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[HOUSING_PSA]"
+                      dataType="wstr"
+                      length="255"
+                      name="HOUSING_PSA" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[JURISDICTION_CODE]"
+                      dataType="r8"
+                      name="JURISDICTION_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[JURIS_DESC]"
+                      dataType="wstr"
+                      length="255"
+                      name="JURIS_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[KY_CD]"
+                      dataType="r8"
+                      name="KY_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[LAW_CAT_CD]"
+                      dataType="wstr"
+                      length="255"
+                      name="LAW_CAT_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[LOC_OF_OCCUR_DESC]"
+                      dataType="wstr"
+                      length="255"
+                      name="LOC_OF_OCCUR_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[OFNS_DESC]"
+                      dataType="wstr"
+                      length="255"
+                      name="OFNS_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PARKS_NM]"
+                      dataType="wstr"
+                      length="255"
+                      name="PARKS_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PATROL_BORO]"
+                      dataType="wstr"
+                      length="255"
+                      name="PATROL_BORO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PD_CD]"
+                      dataType="r8"
+                      name="PD_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PD_DESC]"
+                      dataType="wstr"
+                      length="255"
+                      name="PD_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PREM_TYP_DESC]"
+                      dataType="wstr"
+                      length="255"
+                      name="PREM_TYP_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[RPT_DT]"
+                      dataType="wstr"
+                      length="255"
+                      name="RPT_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[STATION_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="STATION_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SUSP_AGE_GROUP]"
+                      dataType="wstr"
+                      length="255"
+                      name="SUSP_AGE_GROUP" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SUSP_RACE]"
+                      dataType="wstr"
+                      length="255"
+                      name="SUSP_RACE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[SUSP_SEX]"
+                      dataType="wstr"
+                      length="255"
+                      name="SUSP_SEX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TRANSIT_DISTRICT]"
+                      dataType="wstr"
+                      length="255"
+                      name="TRANSIT_DISTRICT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[VIC_AGE_GROUP]"
+                      dataType="wstr"
+                      length="255"
+                      name="VIC_AGE_GROUP" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[VIC_RACE]"
+                      dataType="wstr"
+                      length="255"
+                      name="VIC_RACE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[VIC_SEX]"
+                      dataType="wstr"
+                      length="255"
+                      name="VIC_SEX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[X_COORD_CD]"
+                      dataType="r8"
+                      name="X_COORD_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Y_COORD_CD]"
+                      dataType="r8"
+                      name="Y_COORD_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Latitude]"
+                      dataType="wstr"
+                      length="255"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Longitude]"
+                      dataType="wstr"
+                      length="255"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Lat_Lon]"
+                      dataType="wstr"
+                      length="255"
+                      name="Lat_Lon" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
+                      name="CMPLNT_NUM" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_AGE_GROUP]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_AGE_GROUP]"
+                      name="SUSP_AGE_GROUP" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_RACE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_RACE]"
+                      name="SUSP_RACE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_SEX]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[SUSP_SEX]"
+                      name="SUSP_SEX" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
+              endId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat]"
+              name="Sortie d'erreur de source Excel"
+              startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source Excel"
+              startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="273,145" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Tâche de flux de données\Source Excel"
+          TopLeft="383,172" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Tâche de flux de données\Destination de fichier plat"
+          TopLeft="790,176" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
+          TopLeft="527,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="263,0"
+              Start="0,0"
+              End="255.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="255.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="59.78220703125,5,135.9355859375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Tâche de flux de données\Destination ADO NET"
+          TopLeft="355,368" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+          TopLeft="451.5,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,154"
+              Start="0,0"
+              End="0,146.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,146.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Source Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
