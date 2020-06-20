@@ -2,38 +2,38 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>NYCrimes</Name>
-    <LastWriteTime>2020-05-31T19:42:20.6658063Z</LastWriteTime>
+    <LastWriteTime>2020-06-20T16:31:14.9059772Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Crime.dtsx</Name>
-      <LastWriteTime>2020-06-20T15:29:07.502308Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:46:37.8803672Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Victime.dtsx</Name>
-      <LastWriteTime>2020-06-20T15:13:16.4883296Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:31:14.9079754Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Suspect.dtsx</Name>
-      <LastWriteTime>2020-05-31T18:22:48.530921Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:38:59.3948303Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CrimeLocation.dtsx</Name>
-      <LastWriteTime>2020-05-31T18:55:34.8627481Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:49:55.1258108Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DateOccured.dtsx</Name>
-      <LastWriteTime>2020-05-31T19:34:22.7101945Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:31:14.9009786Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DateReported.dtsx</Name>
-      <LastWriteTime>2020-05-31T19:42:20.5898491Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:31:14.9029766Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

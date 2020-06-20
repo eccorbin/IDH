@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{357019BB-DF5B-49E9-8217-2E211B7C69ED}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{A4B63F38-B55B-4A88-9B8D-8E994E2788C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -103,7 +103,7 @@
       DTS:ObjectName="Gestionnaire de connexions Excel">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Edouard Corbin\NYPD_Crimes.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Edouard Corbin\NYPD_Crimes.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -173,32 +173,29 @@
                   name="Entrée de destination ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_NUM]"
-                      cachedDataType="r8"
-                      cachedName="CMPLNT_NUM"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdSuspect]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]" />
-                    <inputColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[SUSP_AGE_GROUP]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="SUSP_AGE_GROUP"
+                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Age_Gropu]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_AGE_GROUP]" />
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_AGE_GROUP]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[SUSP_RACE]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="SUSP_RACE"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Race]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_RACE]" />
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_RACE]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[SUSP_SEX]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="SUSP_SEX"
+                      cachedSortKeyPosition="3"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Suspect_Sex]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_SEX]" />
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_SEX]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -666,6 +663,169 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Tâche de flux de données\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri].Columns[CMPLNT_NUM]"
+                      cachedDataType="r8"
+                      cachedName="CMPLNT_NUM"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri].Columns[SUSP_AGE_GROUP]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_AGE_GROUP"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_AGE_GROUP]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri].Columns[SUSP_RACE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_RACE"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_RACE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri].Columns[SUSP_SEX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SUSP_SEX"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_SEX]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[CMPLNT_NUM]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[CMPLNT_NUM]"
+                      name="CMPLNT_NUM">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_AGE_GROUP]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_AGE_GROUP]"
+                      name="SUSP_AGE_GROUP"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_AGE_GROUP]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_RACE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_RACE]"
+                      name="SUSP_RACE"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_RACE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_SEX]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[SUSP_SEX]"
+                      name="SUSP_SEX"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[SUSP_SEX]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -675,9 +835,14 @@
               startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              endId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri]"
               name="Sortie de source Excel"
               startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri]"
+              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de tri"
+              startId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -712,6 +877,10 @@
           Id="Package\Tâche de flux de données\Source Excel"
           TopLeft="383,172" />
         <NodeLayout
+          Size="186,42"
+          Id="Package\Tâche de flux de données\Destination ADO NET"
+          TopLeft="370,462" />
+        <NodeLayout
           Size="202,42"
           Id="Package\Tâche de flux de données\Destination de fichier plat"
           TopLeft="790,176" />
@@ -740,23 +909,69 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="186,42"
-          Id="Package\Tâche de flux de données\Destination ADO NET"
-          TopLeft="355,368" />
+          Size="102,42"
+          Id="Package\Tâche de flux de données\Trier"
+          TopLeft="386,309" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-          TopLeft="451.5,214">
+          TopLeft="455,214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,154"
+              EndConnector="-18,95"
               Start="0,0"
-              End="0,146.5">
+              End="-18,87.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,146.5" />
+                    End="0,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.5"
+                    Point2="0,47.5"
+                    Point3="-4,47.5" />
+                  <mssgle:LineSegment
+                    End="-14,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,47.5"
+                    Point2="-18,47.5"
+                    Point3="-18,51.5" />
+                  <mssgle:LineSegment
+                    End="-18,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
+          TopLeft="437,351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,111"
+              Start="0,0"
+              End="26,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.5"
+                    Point2="0,55.5"
+                    Point3="4,55.5" />
+                  <mssgle:LineSegment
+                    End="22,55.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,55.5"
+                    Point2="26,55.5"
+                    Point3="26,59.5" />
+                  <mssgle:LineSegment
+                    End="26,103.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
