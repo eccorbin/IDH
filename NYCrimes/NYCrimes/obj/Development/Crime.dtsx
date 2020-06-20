@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{340D94BE-8D0C-4F3E-BC65-279EC7A38FBF}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{38EF3DA8-8AF9-496B-8798-87E8A863BDDA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -285,38 +285,33 @@
                   name="Entrée de destination ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdCrime]"
-                      cachedDataType="r8"
-                      cachedName="IdCrime"
-                      externalMetadataColumnId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdCrime]"
-                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[IdCrime]" />
-                    <inputColumn
                       refId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Name"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Name]"
-                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Name]" />
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Name]" />
                     <inputColumn
                       refId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Completion]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Completion"
                       externalMetadataColumnId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Completion]"
-                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Completion]" />
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Completion]" />
                     <inputColumn
                       refId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Type_Of_Offense]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Type_Of_Offense"
                       externalMetadataColumnId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Type_Of_Offense]"
-                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Type_Of_Offense]" />
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Type_Of_Offense]" />
                     <inputColumn
                       refId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Code]"
                       cachedDataType="r8"
                       cachedName="Code"
                       externalMetadataColumnId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Code]"
-                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Code]" />
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Code]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -821,6 +816,196 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Moving data from Excel source to star schema\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Moving data from Excel source to star schema\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Inputs[Entrée de tri].Columns[IdCrime]"
+                      cachedDataType="r8"
+                      cachedName="IdCrime"
+                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[IdCrime]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Inputs[Entrée de tri].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Inputs[Entrée de tri].Columns[Completion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Completion"
+                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Completion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Inputs[Entrée de tri].Columns[Type_Of_Offense]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Type_Of_Offense"
+                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Type_Of_Offense]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Inputs[Entrée de tri].Columns[Code]"
+                      cachedDataType="r8"
+                      cachedName="Code"
+                      lineageId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[IdCrime]"
+                      dataType="r8"
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[IdCrime]"
+                      name="IdCrime">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[IdCrime]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Name]"
+                      name="Name"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Completion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Completion]"
+                      name="Completion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Completion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Type_Of_Offense]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Type_Of_Offense]"
+                      name="Type_Of_Offense">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Type_Of_Offense]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Code]"
+                      dataType="r8"
+                      lineageId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri].Columns[Code]"
+                      name="Code">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel].Columns[Code]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -830,9 +1015,14 @@
               startId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie d'erreur de source Excel]" />
             <path
               refId="Package\Moving data from Excel source to star schema.Paths[Sortie de source Excel]"
-              endId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              endId="Package\Moving data from Excel source to star schema\Trier.Inputs[Entrée de tri]"
               name="Sortie de source Excel"
               startId="Package\Moving data from Excel source to star schema\Source Excel.Outputs[Sortie de source Excel]" />
+            <path
+              refId="Package\Moving data from Excel source to star schema.Paths[Sortie de tri]"
+              endId="Package\Moving data from Excel source to star schema\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de tri"
+              startId="Package\Moving data from Excel source to star schema\Trier.Outputs[Sortie de tri]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -863,10 +1053,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="144,42"
-          Id="Package\Moving data from Excel source to star schema\Source Excel"
-          TopLeft="254.5,86.5" />
-        <NodeLayout
           Size="202,42"
           Id="Package\Moving data from Excel source to star schema\Destination de fichier plat"
           TopLeft="703,86" />
@@ -874,28 +1060,10 @@
           Size="186,42"
           Id="Package\Moving data from Excel source to star schema\Destination ADO NET"
           TopLeft="234,351" />
-        <EdgeLayout
-          Id="Package\Moving data from Excel source to star schema.Paths[Sortie de source Excel]"
-          TopLeft="326.75,128.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,222.5"
-              Start="0,0"
-              End="0,215">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,215" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Moving data from Excel source to star schema\Source Excel"
+          TopLeft="254.5,86.5" />
         <EdgeLayout
           Id="Package\Moving data from Excel source to star schema.Paths[Sortie d'erreur de source Excel]"
           TopLeft="398.5,107.25">
@@ -920,9 +1088,89 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Moving data from Excel source to star schema\Trier"
+          TopLeft="267,211" />
+        <EdgeLayout
+          Id="Package\Moving data from Excel source to star schema.Paths[Sortie de source Excel]"
+          TopLeft="326.5,128.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,82.5"
+              Start="0,0"
+              End="-8.5,75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.25"
+                    Point2="0,41.25"
+                    Point3="-4,41.25" />
+                  <mssgle:LineSegment
+                    End="-4.5,41.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,41.25"
+                    Point2="-8.5,41.25"
+                    Point3="-8.5,45.25" />
+                  <mssgle:LineSegment
+                    End="-8.5,75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Moving data from Excel source to star schema.Paths[Sortie de tri]"
+          TopLeft="318,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,98"
+              Start="0,0"
+              End="9,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="4,49" />
+                  <mssgle:LineSegment
+                    End="5,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,49"
+                    Point2="9,49"
+                    Point3="9,53" />
+                  <mssgle:LineSegment
+                    End="9,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Moving data from Excel source to star schema\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Moving data from Excel source to star schema\Source Excel">
     <Properties>
@@ -933,14 +1181,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Moving data from Excel source to star schema\Destination ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

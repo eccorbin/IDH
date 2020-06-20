@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>NYCrimes</Name>
-    <LastWriteTime>2020-05-31T19:34:22.7841515Z</LastWriteTime>
+    <LastWriteTime>2020-05-31T19:42:20.6658063Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Crime.dtsx</Name>
-      <LastWriteTime>2020-05-31T17:25:52.3708446Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T15:29:07.502308Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Victime.dtsx</Name>
-      <LastWriteTime>2020-05-31T18:17:29.0107275Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T15:13:16.4883296Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -29,6 +29,11 @@
     <ProjectBuildItemInfo>
       <Name>DateOccured.dtsx</Name>
       <LastWriteTime>2020-05-31T19:34:22.7101945Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DateReported.dtsx</Name>
+      <LastWriteTime>2020-05-31T19:42:20.5898491Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
