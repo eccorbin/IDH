@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{BCD5554B-380D-483D-8E52-CEF8F78116C6}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{7338AF84-C8D6-4F6C-8A6B-2B116C4CBF2C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -93,7 +93,7 @@
       DTS:ObjectName="Gestionnaire de connexions Excel">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Edouard Corbin\NYPD_Crimes.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Edouard Corbin\NYPD_Crimes.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -389,15 +389,6 @@
                   name="Sortie de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_NUM]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
-                      name="CMPLNT_NUM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_FR_DT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -415,6 +406,15 @@
                       externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_FR_TM]"
                       lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_FR_TM]"
                       name="CMPLNT_FR_TM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_NUM]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
+                      name="CMPLNT_NUM"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -605,11 +605,6 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
-                      dataType="r8"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
-                      name="CMPLNT_NUM" />
-                    <outputColumn
                       refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_DT]"
                       dataType="wstr"
                       length="255"
@@ -620,6 +615,11 @@
                       dataType="date"
                       lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_TM]"
                       name="CMPLNT_FR_TM" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
+                      name="CMPLNT_NUM" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -679,6 +679,28 @@
           Id="Package\Tâche de flux de données\Destination ADO NET"
           TopLeft="440,337" />
         <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+          TopLeft="535.5,205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,132"
+              Start="0,0"
+              End="0,124.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,124.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
           TopLeft="610,186">
           <EdgeLayout.Curve>
@@ -700,28 +722,6 @@
             <mssgm:EdgeLabel
               BoundingBox="-0.21779296874999,5,135.9355859375,9.7490234375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-          TopLeft="535.5,205">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,132"
-              Start="0,0"
-              End="0,124.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,124.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>NYCrimes</Name>
-    <LastWriteTime>2020-06-20T16:31:14.9059772Z</LastWriteTime>
+    <LastWriteTime>2020-06-20T23:22:42.6989186Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Crime.dtsx</Name>
-      <LastWriteTime>2020-06-20T16:46:37.8803672Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:55:47.3971561Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -18,22 +18,22 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Suspect.dtsx</Name>
-      <LastWriteTime>2020-06-20T16:38:59.3948303Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:55:47.4011543Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CrimeLocation.dtsx</Name>
-      <LastWriteTime>2020-06-20T16:49:55.1258108Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T16:55:47.3991739Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DateOccured.dtsx</Name>
-      <LastWriteTime>2020-06-20T16:31:14.9009786Z</LastWriteTime>
+      <LastWriteTime>2020-06-21T11:52:01.0294985Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DateReported.dtsx</Name>
-      <LastWriteTime>2020-06-20T16:31:14.9029766Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T17:02:31.0781981Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
