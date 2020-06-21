@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{6633EB19-C0E2-449E-8DEF-A68F0F543F83}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{48A1A16D-CE92-4075-8296-A76A6A5B135A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -562,6 +562,14 @@
                       cachedName="Quarter"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Quarter]"
                       lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Quarter]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[RPT_DT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RPT_DT"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date_STR]"
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[RPT_DT]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -573,6 +581,11 @@
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date]"
                       dataType="dbTimeStamp"
                       name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date_STR]"
+                      dataType="wstr"
+                      length="255"
+                      name="Date_STR" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Year]"
                       dataType="i4"
@@ -1103,83 +1116,33 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="144,42"
-          Id="Package\Tâche de flux de données\Source Excel"
-          TopLeft="386,69" />
-        <NodeLayout
           Size="202,42"
           Id="Package\Tâche de flux de données\Destination de fichier plat"
           TopLeft="717,69" />
         <NodeLayout
           Size="186,42"
           Id="Package\Tâche de flux de données\Destination ADO NET"
-          TopLeft="603,605" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
-          TopLeft="530,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187,0"
-              Start="0,0"
-              End="179.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="179.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="21.78220703125,5,135.9355859375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="595,553" />
         <NodeLayout
-          Size="102,42"
-          Id="Package\Tâche de flux de données\Trier"
-          TopLeft="271,177" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-          TopLeft="458,111">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-136,66"
-              Start="0,0"
-              End="-136,58.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="-4,33" />
-                  <mssgle:LineSegment
-                    End="-132,33" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-132,33"
-                    Point2="-136,33"
-                    Point3="-136,37" />
-                  <mssgle:LineSegment
-                    End="-136,58.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="168,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée 1"
+          TopLeft="621,352" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Tâche de flux de données\Source Excel"
+          TopLeft="386,69" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée 2"
+          TopLeft="617,451" />
         <NodeLayout
           Size="159,42"
           Id="Package\Tâche de flux de données\Colonne dérivée"
           TopLeft="309,329" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Tâche de flux de données\Trier"
+          TopLeft="271,177" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
           TopLeft="322,219">
@@ -1214,10 +1177,96 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Tâche de flux de données\Colonne dérivée 1"
-          TopLeft="621,352" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+          TopLeft="458,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-136,66"
+              Start="0,0"
+              End="-136,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="-4,33" />
+                  <mssgle:LineSegment
+                    End="-132,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-132,33"
+                    Point2="-136,33"
+                    Point3="-136,37" />
+                  <mssgle:LineSegment
+                    End="-136,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée2]"
+          TopLeft="701,493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,60"
+              Start="0,0"
+              End="-13,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-9,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,30"
+                    Point2="-13,30"
+                    Point3="-13,34" />
+                  <mssgle:LineSegment
+                    End="-13,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
+          TopLeft="703,394">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
           TopLeft="468,350">
@@ -1252,57 +1301,41 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Tâche de flux de données\Colonne dérivée 2"
-          TopLeft="617,451" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
-          TopLeft="703,394">
+          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
+          TopLeft="530,90">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57"
+              EndConnector="187,0"
               Start="0,0"
-              End="0,49.5">
+              End="179.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.5" />
+                    End="179.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée2]"
-          TopLeft="698.5,493">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,112"
-              Start="0,0"
-              End="0,104.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,104.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="21.78220703125,5,135.9355859375,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\Source Excel">
     <Properties>
@@ -1313,14 +1346,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Destination ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

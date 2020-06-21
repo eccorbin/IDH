@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{A28AD32A-5547-4715-9FC3-36D9B18A6892}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{525F3C2C-FF29-47BB-833D-652A75178DCA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -435,6 +435,21 @@
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DayOfTheYear]"
                       lineageId="Package\Tâche de flux de données\extracting all date attributes.Outputs[Sortie de colonne dérivée].Columns[DayOfTheYear]" />
                     <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_TO_DT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CMPLNT_TO_DT"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date_STR]"
+                      lineageId="Package\Tâche de flux de données\Sort and remove duplicates.Outputs[Sortie de tri].Columns[CMPLNT_TO_DT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_TO_TM]"
+                      cachedDataType="date"
+                      cachedName="CMPLNT_TO_TM"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Time_STR]"
+                      lineageId="Package\Tâche de flux de données\Sort and remove duplicates.Outputs[Sortie de tri].Columns[CMPLNT_TO_TM]" />
+                    <inputColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Day]"
                       cachedDataType="i4"
                       cachedName="Day"
@@ -473,6 +488,10 @@
                       dataType="dbTime2"
                       name="Time" />
                     <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Time_STR]"
+                      dataType="dbTimeStamp"
+                      name="Time_STR" />
+                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Hour]"
                       dataType="i4"
                       name="Hour" />
@@ -484,6 +503,11 @@
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date]"
                       dataType="dbTimeStamp"
                       name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date_STR]"
+                      dataType="wstr"
+                      length="255"
+                      name="Date_STR" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Quarter]"
                       dataType="i4"
