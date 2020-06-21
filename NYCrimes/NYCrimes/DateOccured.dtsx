@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{99C7CF64-B77C-4446-80DD-77CFE0842F22}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{AD8F8535-B8C6-4C6B-A4B9-07ACCD68414C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -661,13 +661,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expression de colonne dérivée"
-                          name="Expression">(DT_STR,20,1252)(([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 1) ? "SUNDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 2) ? "MONDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 3) ? "TUESDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 4) ? "WEDNESDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 5) ? "THURSDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 6) ? "FRIDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 7) ? "SATURDAY" : "NULL")</property>
+                          name="Expression">(DT_STR,20,1252)(([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 7) ? "SUNDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 1) ? "MONDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 2) ? "TUESDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 3) ? "WEDNESDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 4) ? "THURSDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 5) ? "FRIDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\change data format to date and time.Outputs[Sortie de colonne dérivée].Columns[date]}) == 6) ? "SATURDAY" : "NULL")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expression claire de colonne dérivée"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,20,1252)((DATEPART("DW",date) == 1) ? "SUNDAY" : (DATEPART("DW",date) == 2) ? "MONDAY" : (DATEPART("DW",date) == 3) ? "TUESDAY" : (DATEPART("DW",date) == 4) ? "WEDNESDAY" : (DATEPART("DW",date) == 5) ? "THURSDAY" : (DATEPART("DW",date) == 6) ? "FRIDAY" : (DATEPART("DW",date) == 7) ? "SATURDAY" : "NULL")</property>
+                          name="FriendlyExpression">(DT_STR,20,1252)((DATEPART("DW",date) == 7) ? "SUNDAY" : (DATEPART("DW",date) == 1) ? "MONDAY" : (DATEPART("DW",date) == 2) ? "TUESDAY" : (DATEPART("DW",date) == 3) ? "WEDNESDAY" : (DATEPART("DW",date) == 4) ? "THURSDAY" : (DATEPART("DW",date) == 5) ? "FRIDAY" : (DATEPART("DW",date) == 6) ? "SATURDAY" : "NULL")</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
