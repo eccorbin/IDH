@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{AD8F8535-B8C6-4C6B-A4B9-07ACCD68414C}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{A28AD32A-5547-4715-9FC3-36D9B18A6892}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1451,13 +1451,13 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="213,42"
-          Id="Package\Tâche de flux de données\extracting all date attributes"
-          TopLeft="605,489" />
-        <NodeLayout
           Size="230,42"
           Id="Package\Tâche de flux de données\converting date &amp; time to string"
           TopLeft="114,388" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Tâche de flux de données\trimming"
+          TopLeft="393,438" />
         <NodeLayout
           Size="186,42"
           Id="Package\Tâche de flux de données\Destination ADO NET"
@@ -1467,17 +1467,17 @@
           Id="Package\Tâche de flux de données\Destination de fichier plat"
           TopLeft="765,159" />
         <NodeLayout
-          Size="144,42"
-          Id="Package\Tâche de flux de données\Source Excel"
-          TopLeft="398,165" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Tâche de flux de données\trimming"
-          TopLeft="393,438" />
+          Size="213,42"
+          Id="Package\Tâche de flux de données\extracting all date attributes"
+          TopLeft="605,489" />
         <NodeLayout
           Size="213,42"
           Id="Package\Tâche de flux de données\Sort and remove duplicates"
           TopLeft="209,212" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Tâche de flux de données\Source Excel"
+          TopLeft="398,165" />
         <NodeLayout
           Size="255,42"
           Id="Package\Tâche de flux de données\change data format to date and time"

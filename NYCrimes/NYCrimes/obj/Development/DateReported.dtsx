@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{7338AF84-C8D6-4F6C-8A6B-2B116C4CBF2C}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{6633EB19-C0E2-449E-8DEF-A68F0F543F83}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -114,6 +114,362 @@
           version="1">
           <components>
             <component
+              refId="Package\Tâche de flux de données\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[RPT_DT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RPT_DT"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[RPT_DT]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[datestr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[datestr]"
+                      name="datestr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[SUBSTRING](#{Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[RPT_DT]},7,4) + "/" + [SUBSTRING](#{Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[RPT_DT]},1,2) + "/" + [SUBSTRING](#{Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[RPT_DT]},4,2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(RPT_DT,7,4) + "/" + SUBSTRING(RPT_DT,1,2) + "/" + SUBSTRING(RPT_DT,4,2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Colonne dérivée 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée].Columns[datestr]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="datestr"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[datestr]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[LEN](#{Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[datestr]}) &lt; 5 ? NULL(DT_DATE) : (DT_DATE)(#{Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[datestr]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(datestr) &lt; 5 ? NULL(DT_DATE) : (DT_DATE)(datestr)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Colonne dérivée 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Colonne dérivée 2.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Inputs[Entrée de colonne dérivée].Columns[date]"
+                      cachedDataType="date"
+                      cachedName="date"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée 2.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[YEAR](#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(date)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[MONTH](#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MONTH(date)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Day]"
+                      name="Day"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[DAY](#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DAY(date)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[DayOfTheYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[DayOfTheYear]"
+                      name="DayOfTheYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[DATEPART]("dy",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("dy",date)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[DayOfTheWeekName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[DayOfTheWeekName]"
+                      name="DayOfTheWeekName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_STR,20,1252)(([DATEPART]("DW",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]}) == 1) ? "SUNDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]}) == 2) ? "MONDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]}) == 3) ? "TUESDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]}) == 4) ? "WEDNESDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]}) == 5) ? "THURSDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]}) == 6) ? "FRIDAY" : ([DATEPART]("DW",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]}) == 7) ? "SATURDAY" : "NULL")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)((DATEPART("DW",date) == 1) ? "SUNDAY" : (DATEPART("DW",date) == 2) ? "MONDAY" : (DATEPART("DW",date) == 3) ? "TUESDAY" : (DATEPART("DW",date) == 4) ? "WEDNESDAY" : (DATEPART("DW",date) == 5) ? "THURSDAY" : (DATEPART("DW",date) == 6) ? "FRIDAY" : (DATEPART("DW",date) == 7) ? "SATURDAY" : "NULL")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Quarter]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Quarter]"
+                      name="Quarter"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[DATEPART]("qq",#{Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("qq",date)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée 2.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Tâche de flux de données\Destination ADO NET"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
@@ -163,18 +519,49 @@
                   name="Entrée de destination ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_NUM]"
-                      cachedDataType="r8"
-                      cachedName="CMPLNT_NUM"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IDDateReported]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_FR_DT]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CMPLNT_FR_DT"
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[date]"
+                      cachedDataType="date"
+                      cachedName="date"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_FR_DT]" />
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[date]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Year]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Month]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Day]"
+                      cachedDataType="i4"
+                      cachedName="Day"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Day]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Day]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DayOfTheYear]"
+                      cachedDataType="i4"
+                      cachedName="DayOfTheYear"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DayOfTheYear]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[DayOfTheYear]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DayOfTheWeekName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="DayOfTheWeekName"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DayOfTheWeekName]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[DayOfTheWeekName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Quarter]"
+                      cachedDataType="i4"
+                      cachedName="Quarter"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Quarter]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée].Columns[Quarter]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -195,23 +582,22 @@
                       dataType="i4"
                       name="Month" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[MonthName]"
-                      dataType="wstr"
-                      length="255"
-                      name="MonthName" />
-                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Day]"
                       dataType="i4"
                       name="Day" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DayOfWeek]"
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DayOfTheYear]"
                       dataType="i4"
-                      name="DayOfWeek" />
+                      name="DayOfTheYear" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DayOfTheWeekName]"
                       dataType="wstr"
                       length="255"
                       name="DayOfTheWeekName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Quarter]"
+                      dataType="i4"
+                      name="Quarter" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -289,24 +675,12 @@
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[ErrorColumn]"
                       lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[CMPLNT_NUM]"
-                      cachedDataType="r8"
-                      cachedName="CMPLNT_NUM"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[CMPLNT_NUM]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[CMPLNT_FR_DT]"
+                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[RPT_DT]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="CMPLNT_FR_DT"
+                      cachedName="RPT_DT"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[CMPLNT_FR_DT]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_DT]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[CMPLNT_FR_TM]"
-                      cachedDataType="date"
-                      cachedName="CMPLNT_FR_TM"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[CMPLNT_FR_TM]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_TM]" />
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[RPT_DT]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -389,32 +763,14 @@
                   name="Sortie de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_FR_DT]"
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[RPT_DT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_FR_DT]"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[RPT_DT]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_FR_DT]"
-                      name="CMPLNT_FR_DT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_FR_TM]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_FR_TM]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_FR_TM]"
-                      name="CMPLNT_FR_TM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CMPLNT_NUM]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]"
-                      name="CMPLNT_NUM"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[RPT_DT]"
+                      name="RPT_DT"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -605,21 +961,81 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_DT]"
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[RPT_DT]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_DT]"
-                      name="CMPLNT_FR_DT" />
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[RPT_DT]"
+                      name="RPT_DT" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri].Columns[RPT_DT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RPT_DT"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[RPT_DT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_TM]"
-                      dataType="date"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_FR_TM]"
-                      name="CMPLNT_FR_TM" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
-                      dataType="r8"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CMPLNT_NUM]"
-                      name="CMPLNT_NUM" />
+                      refId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[RPT_DT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri].Columns[RPT_DT]"
+                      name="RPT_DT"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[RPT_DT]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -633,10 +1049,30 @@
               name="Sortie d'erreur de source Excel"
               startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+              endId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
+              endId="Package\Tâche de flux de données\Colonne dérivée 2.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée2]"
               endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\Colonne dérivée 2.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+              endId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri]"
               name="Sortie de source Excel"
               startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri]"
+              endId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de tri"
+              startId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -665,33 +1101,175 @@
     design-time-name="Package\Tâche de flux de données">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="144,42"
           Id="Package\Tâche de flux de données\Source Excel"
-          TopLeft="466,163" />
+          TopLeft="386,69" />
         <NodeLayout
           Size="202,42"
           Id="Package\Tâche de flux de données\Destination de fichier plat"
-          TopLeft="753,167" />
+          TopLeft="717,69" />
         <NodeLayout
           Size="186,42"
           Id="Package\Tâche de flux de données\Destination ADO NET"
-          TopLeft="440,337" />
+          TopLeft="603,605" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-          TopLeft="535.5,205">
+          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
+          TopLeft="530,90">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,132"
+              EndConnector="187,0"
               Start="0,0"
-              End="0,124.5">
+              End="179.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,124.5" />
+                    End="179.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.78220703125,5,135.9355859375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Tâche de flux de données\Trier"
+          TopLeft="271,177" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+          TopLeft="458,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-136,66"
+              Start="0,0"
+              End="-136,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="-4,33" />
+                  <mssgle:LineSegment
+                    End="-132,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-132,33"
+                    Point2="-136,33"
+                    Point3="-136,37" />
+                  <mssgle:LineSegment
+                    End="-136,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée"
+          TopLeft="309,329" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
+          TopLeft="322,219">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.5,110"
+              Start="0,0"
+              End="66.5,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51"
+                    Point2="0,55"
+                    Point3="4,55" />
+                  <mssgle:LineSegment
+                    End="62.5,55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.5,55"
+                    Point2="66.5,55"
+                    Point3="66.5,59" />
+                  <mssgle:LineSegment
+                    End="66.5,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée 1"
+          TopLeft="621,352" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+          TopLeft="468,350">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153,23"
+              Start="0,0"
+              End="145.5,23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="72.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.5,0"
+                    Point2="76.5,0"
+                    Point3="76.5,4" />
+                  <mssgle:LineSegment
+                    End="76.5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76.5,19"
+                    Point2="76.5,23"
+                    Point3="80.5,23" />
+                  <mssgle:LineSegment
+                    End="145.5,23" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée 2"
+          TopLeft="617,451" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
+          TopLeft="703,394">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -701,27 +1279,25 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
-          TopLeft="610,186">
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée2]"
+          TopLeft="698.5,493">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="143,0"
+              EndConnector="0,112"
               Start="0,0"
-              End="135.5,0">
+              End="0,104.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="135.5,0" />
+                    End="0,104.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-0.21779296874999,5,135.9355859375,9.7490234375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
