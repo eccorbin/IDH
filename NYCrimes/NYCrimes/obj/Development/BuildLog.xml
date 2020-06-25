@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>NYCrimes</Name>
-    <LastWriteTime>2020-06-21T15:20:14.8150412Z</LastWriteTime>
+    <LastWriteTime>2020-06-22T12:29:32.5641852Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -38,7 +38,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ReportedCrime.dtsx</Name>
-      <LastWriteTime>2020-06-21T15:59:05.652168Z</LastWriteTime>
+      <LastWriteTime>2020-06-22T12:58:45.8541876Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

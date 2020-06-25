@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{5FF22E08-C01A-43E6-9B5C-E7022CF5FFFE}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{A5AAA1DE-43CC-4D9F-BA9A-D869819B21E7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -34,6 +34,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=db-mssql;Initial Catalog=s21495;Integrated Security=True;Application Name=SSIS-Package1-{C07FE099-88A0-4450-802A-D46C060DD9B5}db-mssql.s21495;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[db-mssql.s21495 1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{F71B3F3F-78CF-4F26-9864-ADD96886A55F}"
+      DTS:ObjectName="db-mssql.s21495 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=db-mssql;Initial Catalog=s21495;Integrated Security=True;Application Name=SSIS-Package1-{F71B3F3F-78CF-4F26-9864-ADD96886A55F}db-mssql.s21495 1;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -331,6 +341,36 @@
                   name="Entrée de destination ADO NET">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_NUM]"
+                      cachedDataType="r8"
+                      cachedName="CMPLNT_NUM"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IDReportedCrimes]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IDDateReported]"
+                      cachedDataType="i4"
+                      cachedName="IDDateReported"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdDateReported]"
+                      lineageId="Package\Tâche de flux de données\idDateReported Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IDDateReported]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdDateOccured]"
+                      cachedDataType="i4"
+                      cachedName="IdDateOccured"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdDateOccured]"
+                      lineageId="Package\Tâche de flux de données\idDateOccured Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IdDateOccured]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdSuspect]"
+                      cachedDataType="i4"
+                      cachedName="IdSuspect"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdSuspect]"
+                      lineageId="Package\Tâche de flux de données\idSuspect Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IdSuspect]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdCrime]"
+                      cachedDataType="i4"
+                      cachedName="IdCrime"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdCrime]"
+                      lineageId="Package\Tâche de flux de données\idCrime Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IdCrime]" />
+                    <inputColumn
                       refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdCrimeLocation]"
                       cachedDataType="i4"
                       cachedName="IdCrimeLocation"
@@ -342,36 +382,6 @@
                       cachedName="IdVictim"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdVictim]"
                       lineageId="Package\Tâche de flux de données\idVictim Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IdVictim]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdCrime]"
-                      cachedDataType="i4"
-                      cachedName="IdCrime"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdCrime]"
-                      lineageId="Package\Tâche de flux de données\idCrime Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IdCrime]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdSuspect]"
-                      cachedDataType="i4"
-                      cachedName="IdSuspect"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdSuspect]"
-                      lineageId="Package\Tâche de flux de données\idSuspect Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IdSuspect]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CMPLNT_NUM]"
-                      cachedDataType="r8"
-                      cachedName="CMPLNT_NUM"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IDReportedCrimes]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CMPLNT_NUM]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IdDateOccured]"
-                      cachedDataType="i4"
-                      cachedName="IdDateOccured"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdDateOccured]"
-                      lineageId="Package\Tâche de flux de données\idDateOccured Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IdDateOccured]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[IDDateReported]"
-                      cachedDataType="i4"
-                      cachedName="IDDateReported"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[IdDateReported]"
-                      lineageId="Package\Tâche de flux de données\idDateReported Lookup.Outputs[Sortie de recherche avec correspondance].Columns[IDDateReported]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2209,14 +2219,14 @@ where [refTable].[Vic_Age_Group] = ? and [refTable].[Vic_Race] = ? and [refTable
               startId="Package\Tâche de flux de données\idDateOccured Lookup.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance4]"
-              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
-              name="Sortie de recherche avec correspondance"
-              startId="Package\Tâche de flux de données\idDateReported Lookup.Outputs[Sortie de recherche avec correspondance]" />
-            <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance5]"
               endId="Package\Tâche de flux de données\idSuspect Lookup.Inputs[Entrée de recherche]"
               name="Sortie de recherche avec correspondance"
               startId="Package\Tâche de flux de données\idCrimeLocation Lookup.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance5]"
+              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Tâche de flux de données\idDateReported Lookup.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
               endId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données]"
@@ -2254,209 +2264,93 @@ where [refTable].[Vic_Age_Group] = ? and [refTable].[Vic_Race] = ? and [refTable
         <NodeLayout
           Size="166,42"
           Id="Package\Tâche de flux de données\idSuspect Lookup"
-          TopLeft="697,493" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Tâche de flux de données\idVictim Lookup"
-          TopLeft="469,193" />
-        <NodeLayout
-          Size="202,42"
-          Id="Package\Tâche de flux de données\Destination de fichier plat"
-          TopLeft="772,74" />
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Tâche de flux de données\Source Excel"
-          TopLeft="445,21" />
+          TopLeft="765.75,599.11111111111" />
         <NodeLayout
           Size="156,42"
           Id="Package\Tâche de flux de données\idCrime Lookup"
-          TopLeft="542,296" />
+          TopLeft="607,423.36111111111" />
         <NodeLayout
-          Size="186,42"
-          Id="Package\Tâche de flux de données\Destination ADO NET"
-          TopLeft="923,761" />
+          Size="157,42"
+          Id="Package\Tâche de flux de données\idVictim Lookup"
+          TopLeft="531.5,340.36111111111" />
         <NodeLayout
           Size="198,42"
           Id="Package\Tâche de flux de données\idCrimeLocation Lookup"
-          TopLeft="611,393" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="547.5,235">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="72.5,61"
-              Start="0,0"
-              End="72.5,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.5"
-                    Point2="0,30.5"
-                    Point3="4,30.5" />
-                  <mssgle:LineSegment
-                    End="68.5,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="68.5,30.5"
-                    Point2="72.5,30.5"
-                    Point3="72.5,34.5" />
-                  <mssgle:LineSegment
-                    End="72.5,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.42701171875,35.5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="620,338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="90,55"
-              Start="0,0"
-              End="90,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.5"
-                    Point2="0,27.5"
-                    Point3="4,27.5" />
-                  <mssgle:LineSegment
-                    End="86,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="86,27.5"
-                    Point2="90,27.5"
-                    Point3="90,31.5" />
-                  <mssgle:LineSegment
-                    End="90,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-46.67701171875,32.5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
-          TopLeft="589,42">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="183,53"
-              Start="0,0"
-              End="175.5,53">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="87.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="87.5,0"
-                    Point2="91.5,0"
-                    Point3="91.5,4" />
-                  <mssgle:LineSegment
-                    End="91.5,49" />
-                  <mssgle:CubicBezierSegment
-                    Point1="91.5,49"
-                    Point2="91.5,53"
-                    Point3="95.5,53" />
-                  <mssgle:LineSegment
-                    End="175.5,53" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="23.53220703125,-15.7490234375,135.9355859375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="676,520.36111111111" />
         <NodeLayout
-          Size="191,42"
-          Id="Package\Tâche de flux de données\idDateOccured Lookup"
-          TopLeft="773,578" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance2]"
-          TopLeft="780,535">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="88.5,43"
-              Start="0,0"
-              End="88.5,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5"
-                    Point2="0,21.5"
-                    Point3="4,21.5" />
-                  <mssgle:LineSegment
-                    End="84.5,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="84.5,21.5"
-                    Point2="88.5,21.5"
-                    Point3="88.5,25.5" />
-                  <mssgle:LineSegment
-                    End="88.5,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-47.42701171875,26.5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="202,42"
+          Id="Package\Tâche de flux de données\Destination de fichier plat"
+          TopLeft="905.472222222222,2.33333333333344" />
         <NodeLayout
           Size="195,42"
           Id="Package\Tâche de flux de données\Conversion de données"
-          TopLeft="164,155" />
+          TopLeft="501.222222222223,179.916666666667" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Tâche de flux de données\idDateOccured Lookup"
+          TopLeft="838,705.36111111111" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Tâche de flux de données\idDateReported Lookup"
+          TopLeft="959,797.36111111111" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Tâche de flux de données\Source Excel"
+          TopLeft="485.444444444444,0.1388888888889" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Tâche de flux de données\Destination ADO NET"
+          TopLeft="960,926.94444444444" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
-          TopLeft="359,176">
+          Id="Package\Tâche de flux de données.Paths[Sortie d'erreur de source Excel]"
+          TopLeft="629.444444444444,22.2361111111112">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="110,38"
+              EndConnector="276.027777777778,0"
               Start="0,0"
-              End="102.5,38">
+              End="268.527777777778,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="51,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="51,0"
-                    Point2="55,0"
-                    Point3="55,4" />
+                    End="268.527777777778,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="66.2960959201389,5,135.9355859375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+          TopLeft="557.444444444444,42.1388888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.2777777777787,137.777777777778"
+              Start="0,0"
+              End="41.2777777777787,130.277777777778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="55,34" />
+                    End="0,64.8888888888889" />
                   <mssgle:CubicBezierSegment
-                    Point1="55,34"
-                    Point2="55,38"
-                    Point3="59,38" />
+                    Point1="0,64.8888888888889"
+                    Point2="0,68.8888888888889"
+                    Point3="4,68.8888888888889" />
                   <mssgle:LineSegment
-                    End="102.5,38" />
+                    End="37.2777777777787,68.8888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.2777777777787,68.8888888888889"
+                    Point2="41.2777777777787,68.8888888888889"
+                    Point3="41.2777777777787,72.8888888888889" />
+                  <mssgle:LineSegment
+                    End="41.2777777777787,130.277777777778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2465,13 +2359,45 @@ where [refTable].[Vic_Age_Group] = ? and [refTable].[Vic_Race] = ? and [refTable
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="195,42"
-          Id="Package\Tâche de flux de données\idDateReported Lookup"
-          TopLeft="894,670" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance4]"
+          TopLeft="775,562.36111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.75,36.75"
+              Start="0,0"
+              End="73.75,29.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.375"
+                    Point2="0,18.375"
+                    Point3="4,18.375" />
+                  <mssgle:LineSegment
+                    End="69.75,18.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.75,18.375"
+                    Point2="73.75,18.375"
+                    Point3="73.75,22.375" />
+                  <mssgle:LineSegment
+                    End="73.75,29.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.80201171875,23.375,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance3]"
-          TopLeft="868.5,620">
+          TopLeft="933.5,747.36111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2506,109 +2432,169 @@ where [refTable].[Vic_Age_Group] = ? and [refTable].[Vic_Race] = ? and [refTable
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance4]"
-          TopLeft="991.5,712">
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="848.75,641.11111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.5,49"
+              EndConnector="84.75,64.25"
               Start="0,0"
-              End="24.5,41.5">
+              End="84.75,56.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,28.125" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.5"
-                    Point2="0,24.5"
-                    Point3="4,24.5" />
+                    Point1="0,28.125"
+                    Point2="0,32.125"
+                    Point3="4,32.125" />
                   <mssgle:LineSegment
-                    End="20.5,24.5" />
+                    End="80.75,32.125" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.5,24.5"
-                    Point2="24.5,24.5"
-                    Point3="24.5,28.5" />
+                    Point1="80.75,32.125"
+                    Point2="84.75,32.125"
+                    Point3="84.75,36.125" />
                   <mssgle:LineSegment
-                    End="24.5,41.5" />
+                    End="84.75,56.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-79.42701171875,29.5,183.3540234375,11.609375"
+              BoundingBox="-49.30201171875,37.125,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance5]"
-          TopLeft="710,435">
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="610,382.36111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="70,58"
+              EndConnector="75,41"
               Start="0,0"
-              End="70,50.5">
+              End="75,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25" />
+                    End="0,16.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="4,29" />
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
                   <mssgle:LineSegment
-                    End="66,29" />
+                    End="71,20.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="66,29"
-                    Point2="70,29"
-                    Point3="70,33" />
+                    Point1="71,20.5"
+                    Point2="75,20.5"
+                    Point3="75,24.5" />
                   <mssgle:LineSegment
-                    End="70,50.5" />
+                    End="75,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-56.67701171875,34,183.3540234375,11.609375"
+              BoundingBox="-54.17701171875,25.5,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-          TopLeft="517,63">
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="685,465.36111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-255.5,92"
+              EndConnector="90,55"
               Start="0,0"
-              End="-255.5,84.5">
+              End="90,47.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42" />
+                    End="0,23.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42"
-                    Point2="0,46"
-                    Point3="-4,46" />
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
                   <mssgle:LineSegment
-                    End="-251.5,46" />
+                    End="86,27.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-251.5,46"
-                    Point2="-255.5,46"
-                    Point3="-255.5,50" />
+                    Point1="86,27.5"
+                    Point2="90,27.5"
+                    Point3="90,31.5" />
                   <mssgle:LineSegment
-                    End="-255.5,84.5" />
+                    End="90,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-46.67701171875,32.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
+          TopLeft="598.722222222223,221.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.2777777777773,118.444444444443"
+              Start="0,0"
+              End="11.2777777777773,110.944444444443">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.2222222222217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.2222222222217"
+                    Point2="0,59.2222222222217"
+                    Point3="4,59.2222222222217" />
+                  <mssgle:LineSegment
+                    End="7.27777777777726,59.2222222222217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.27777777777726,59.2222222222217"
+                    Point2="11.2777777777773,59.2222222222217"
+                    Point3="11.2777777777773,63.2222222222217" />
+                  <mssgle:LineSegment
+                    End="11.2777777777773,110.944444444443" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance5]"
+          TopLeft="1054.75,839.36111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87.5833333333302"
+              Start="0,0"
+              End="0,80.0833333333302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.0833333333302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,34.2369791666651,183.3540234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2626,6 +2612,29 @@ where [refTable].[Vic_Age_Group] = ? and [refTable].[Vic_Race] = ? and [refTable
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[Suspect]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\idCrime Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Crime]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2661,6 +2670,75 @@ where [refTable].[Vic_Age_Group] = ? and [refTable].[Vic_Race] = ? and [refTable
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\idCrimeLocation Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CrimeLocation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\idDateOccured Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DateOccured]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\idDateReported Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DateReported]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\Source Excel">
     <Properties>
       <Property>
@@ -2674,100 +2752,8 @@ where [refTable].[Vic_Age_Group] = ? and [refTable].[Vic_Race] = ? and [refTable
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\idCrime Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Crime]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\Destination ADO NET">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\idCrimeLocation Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[CrimeLocation]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\idDateOccured Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DateOccured]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\idDateReported Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DateReported]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
